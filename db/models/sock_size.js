@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({ Sock }) {
-      Sock_size.belongsTo(Sock, { foreignKey: 'sock_size' });
+      Sock_size.hasMany(Sock, { foreignKey: 'sock_size' });
     }
   }
   Sock_size.init({

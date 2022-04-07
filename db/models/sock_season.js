@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({ Sock }) {
-      Sock_season.belongsTo(Sock, { foreignKey: 'sock_season' });
+      Sock_season.hasMany(Sock, { foreignKey: 'sock_season' });
     }
   }
   Sock_season.init({

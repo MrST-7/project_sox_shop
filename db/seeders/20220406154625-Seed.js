@@ -77,7 +77,7 @@ module.exports = {
       updatedAt: new Date(),
     },
       {
-        sock_name: 'Рождественнский',
+        sock_name: 'Рождественский',
         sock_size: 2,
         sock_season: 3,
         sock_isApproved: true,
