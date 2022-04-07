@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=48e8a84a-141f-4f63-bc78-ddd9650d160b&lang=ru_RU" type="text/javascript">
+  </script>
+    <!-- center: [59.943683, 30.360164], -->
+  <script type="text/javascript" >
+    // Функция ymaps.ready() будет вызвана, когда
+    // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+// center: [59.943683, 30.360164],
+ymaps.ready(() => {
+  const myMap = new ymaps.Map('map', {
+    center: [59.943683, 30.360164],
+    zoom: 17,
+  }, {
+    searchControlProvider: 'yandex#search',
+  });
+
+  // Создаём макет содержимого.
+  const MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+    '<div style="color: #000000; font-weight: bold;">$[properties.iconContent]</div>',
+  );
+
+  const myPlacemarkWithContent = new ymaps.Placemark([59.943683, 30.360164], {
+    hintContent: 'Носки Чудесные',
+    balloonContent: 'А эта — новогодняя',
+    iconContent: '',
+  }, {
+    // Опции.
+    // Необходимо указать данный тип макета.
+    iconLayout: 'default#imageWithContent',
+    // Своё изображение иконки метки.
+    iconImageHref: './sox.png',
+    // Размеры метки.
+    iconImageSize: [48, 48],
+    // Смещение левого верхнего угла иконки относительно
+    // её "ножки" (точки привязки).
+    iconImageOffset: [-24, -24],
+    // Смещение слоя с содержимым относительно слоя с картинкой.
+    iconContentOffset: [15, 15],
+    // Макет содержимого.
+    iconContentLayout: MyIconContentLayout,
+  });
+
+  myMap.geoObjects
+    .add(myPlacemarkWithContent);
+});
+
+  </script>
+</head>
+<body>
+
+  <div id="map" style=" height: 500px; display: flex;
+  justify-content: center"></div>
+  
+</body>
+
+</html>
