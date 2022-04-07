@@ -1,14 +1,32 @@
-const express = require('express')
-const path = require('path')
-const hbs = require('hbs')
-const logger = require('logger')
+const express = require("express");
+const hbs = require("hbs");
+const path = require("path");
+const session = require("express-session");
+const sessionFileStore = require("session-file-store");
+const cookieParser = require("cookie-parser");
+
+const FileStore = sessionFileStore(session);
 
 const config = (app) => {
-  app.set('view engine', 'hbs');
-  
-  app.use(express.urlencoded({extended:true}))
-  app.use(express.json())
-  app.use(express.static(path.join(__dirname, 'public')))
-  app.use(logger('dev'))
-}
-module.exports = config
+  app.set("view engine", "hbs");
+  app.set("views", path.join(process.env.PWD, "views"));
+
+  hbs.registerPartials(path.join(process.env.PWD, "views", "partials"));
+  app.use(express.urlencoded({ extended: true }));
+  app.use(express.json());
+  app.use(express.static(path.join(process.env.PWD, "public")));
+  app.use(cookieParser());
+  app.use(
+    session({
+      store: new FileStore({ secret: "secret" }),
+      name: "user_sid",
+      key: app.get("session cookie name"),
+      secret: "secret",
+      resave: false,
+      saveUninitialized: false,
+      cookie: { maxAge: 10e3 * 60, httpOnly: true },
+    })
+  );
+};
+
+module.exports = config;
