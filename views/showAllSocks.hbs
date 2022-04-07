@@ -1,0 +1,12 @@
+{{#each sock}}
+  <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-name">{{this.sock_name}}</h5>
+      <h5 class="card-size">{{this.sock_size}}</h5>
+      <h5 class="card-season">{{this.sock_season}}</h5>
+      <a href="/{{this.id}}" class="btn btn-primary">Подробнее</a>
+      <a href='/' class="btn btn-primary">Купить</a>
+    </div>
+  </div>
+{{/each}}
