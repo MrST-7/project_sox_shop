@@ -1,4 +1,9 @@
-<form action="/login" style="top: 100px;background-color:antiquewhite;  ">
+<div class="container position-absolute top-50 start-50 translate-middle">
+  <div calss="row">
+
+<form action="/login" method="post" style="top: 100px;background-color:antiquewhite;  ">
+
+  </div>
    <div class="mb-3" style="width: 300px;" >
     <label for="email" class="form-label">Email address</label>
     <input name="email" type="text" class="form-control" id="email" aria-describedby="emailHelp">
@@ -7,5 +12,27 @@
     <label for="password" class="form-label">Password</label>
     <input name="password" type="password" class="form-control" id="password">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  {{!-- <button type="submit" class="btn btn-primary">Submit</button> --}}
+<button type="submit" data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-primary">Submit</button>
+ <div id="myModals" class="modal">
+   <div class="modal_content">
+     <span class="close">$times</span>
+       <p>modal</p>
+   </div>
+ </div>
 </form>
+</div>
+{{!-- <div class="popup" id="popup">
+  <div class="popup_body">
+    <div class="popup_content">
+    <div class="popup_close">
+      <a href="#popup" class="popup_close">aa</a>
+      <div class="popup_title">
+        <div class="popup_text">
+          text_pop
+        </div>
+      </div>
+    </div>      
+    </div>
+  </div>
+</div> --}}

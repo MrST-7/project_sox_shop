@@ -11,13 +11,8 @@ router
     const user = uid && (await User.findByPk(Number(uid)));
     const isAuthorized = !!user;
     res.render("regist", { user, isAuthorized });
-  });
-router
-  .route("/")
+  })
 
-  .get((req, res) => res.render("regist"))
-
-  // регистрация
   .post(async (req, res) => {
     const { name, email, password } = req.body;
     const user = await User.findOne({ where: { user_email: email } });
