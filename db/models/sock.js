@@ -10,9 +10,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({ Basket, Sock_size, Sock_season }) {
-      Sock.belongsTo(Basket, { foreignKey: 'id_sock' });
-      Sock.hasMany(Sock_size, { foreignKey: 'sock_size' });
-      Sock.hasMany(Sock_season, { foreignKey: 'sock_season' });
+      // Sock.belongsTo(Basket, { foreignKey: 'id_sock' });
+      Sock.belongsTo(Sock_size, { foreignKey: 'sock_size' });
+      Sock.belongsTo(Sock_season, { foreignKey: 'sock_season' });
     }
   }
   Sock.init({
@@ -40,6 +40,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false,
+    },
+    sock_img: {
+      type: DataTypes.TEXT,
+      allowNull: false,
     },
   }, {
     sequelize,

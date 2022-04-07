@@ -1,3 +1,5 @@
+// noinspection JSUndeclaredVariable
+
 var colorBlock = document.getElementById('color-block');
 var ctx1 = colorBlock.getContext('2d');
 var width1 = colorBlock.width;

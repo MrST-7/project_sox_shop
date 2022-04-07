@@ -63,7 +63,7 @@ module.exports = {
 
     await queryInterface.bulkInsert('Socks', [{
       sock_name: 'Клевый true',
-      sock_size: 2,
+      sock_size: 1,
       sock_season: 3,
       sock_isApproved: true,
       createdAt: new Date(),
@@ -72,10 +72,58 @@ module.exports = {
       sock_name: 'Клевый false',
       sock_size: 2,
       sock_season: 3,
-      sock_isApproved: false,
+      sock_isApproved: true,
       createdAt: new Date(),
       updatedAt: new Date(),
-    }], {});
+    },
+      {
+        sock_name: 'Рождественский',
+        sock_size: 2,
+        sock_season: 3,
+        sock_isApproved: true,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    {
+        sock_name: 'Зенит - чемпион!',
+        sock_size: 4,
+        sock_season: 3,
+        sock_isApproved: true,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    {
+        sock_name: 'Keep calm and code it',
+        sock_size: 2,
+        sock_season: 1,
+        sock_isApproved: true,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    {
+        sock_name: 'Mama pomogi',
+        sock_size: 1,
+        sock_season: 3,
+        sock_isApproved: true,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    {
+        sock_name: 'Так работает JS',
+        sock_size: 2,
+        sock_season: 3,
+        sock_isApproved: true,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    {
+        sock_name: 'Ээээ',
+        sock_size: 2,
+        sock_season: 4,
+        sock_isApproved: true,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      }], {});
   },
 
   async down(queryInterface, Sequelize) {
