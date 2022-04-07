@@ -12,5 +12,9 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   rules: {
+    'eslint-disable max-len': 0,
+    'no-console': 0,
+    camelcase: 0,
+    'no-unused-vars': 0,
   },
 };

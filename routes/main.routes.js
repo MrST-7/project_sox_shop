@@ -1,5 +1,6 @@
 const router = require('express').Router();
 
+
 const { Sock, User, Sock_season, Sock_size } = require('../db/models');
 
 router
@@ -38,6 +39,9 @@ router.get('/:id', async (req, res) => {
     });
   }
   console.log('asdasdasdasd' , sock['Sock_season.id_sock_season']);
-});
 
+});
+router.get('/home', (req, res) => {
+  res.render('home');
+  
 module.exports = router;
