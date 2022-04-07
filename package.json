@@ -5,16 +5,11 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
-    "dev": "nodemon app.js",
     "dbc": "npx sequelize db:create",
     "dbm": "npx sequelize db:migrate:undo:all && npx sequelize db:migrate",
     "dbd": "npx sequelize db:drop",
-    "dbs": "npx sequelize db:seed:all"
-
-=======
+    "dbs": "npx sequelize db:seed:all",
     "dev": "nodemon app.js --ignore ./sessions"
->>>>>>> 6004ab4119cb09f6af46a709b405d03c22e94058
   },
   "repository": {
     "type": "git",

@@ -1,16 +1,16 @@
-const router = require("express").Router();
-const bcrypt = require("bcrypt");
-const { User } = require("../db/models");
+const router = require('express').Router();
+const bcrypt = require('bcrypt');
+const { User } = require('../db/models');
 
 router
-  .route("/")
+  .route('/')
 
   .get(async (req, res) => {
     const { uid } = req.session;
 
     const user = uid && (await User.findByPk(Number(uid)));
     const isAuthorized = !!user;
-    res.render("regist", { user, isAuthorized });
+    res.render('regist', { user, isAuthorized });
   })
 
   .post(async (req, res) => {
@@ -18,7 +18,7 @@ router
     const user = await User.findOne({ where: { user_email: email } });
 
     if (user) {
-      res.send("Имя пользователя занято");
+      res.send('Имя пользователя занято');
     } else {
       const newUser = new User({
         user_name: name,
@@ -28,7 +28,7 @@ router
       await newUser.save();
 
       req.session.uid = newUser.id;
-      res.redirect("/");
+      res.redirect('/');
     }
   });
 

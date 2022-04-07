@@ -1,6 +1,6 @@
-const router = require("express").Router();
-const bcrypt = require("bcrypt");
-const { User } = require("../db/models");
+const router = require('express').Router();
+const bcrypt = require('bcrypt');
+const { User } = require('../db/models');
 
 // router.route("/").get(async (req, res) => {
 //   const { uid } = req.session;
@@ -10,17 +10,17 @@ const { User } = require("../db/models");
 // });
 
 router
-  .route("/")
-  .get((req, res) => res.render("login"))
+  .route('/')
+  .get((req, res) => res.render('login'))
   .post(async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ where: { user_email: email } });
-    console.log(`${password}`, `has${user.password}`);
+    // console.log(`${password}`, `has${user.password}`);
     if (user && (await bcrypt.compare(password, user.password))) {
       req.session.uid = user.id;
-      res.redirect("/");
+      res.redirect('/');
     } else {
-      res.status(420).send("Неверный логин или пароль");
+      res.status(420).send('Неверный логин или пароль');
     }
   });
 

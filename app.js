@@ -1,29 +1,24 @@
 // const mainRout = require('./routes/main.routes');
-const express = require("express");
-const config = require("./config/config");
-const registRoute = require("./routes/regist.route");
-const loginRoute = require("./routes/login.route");
-const mainRoute = require("./routes/mainRoute");
-const logoutRoute = require("./routes/logout.route");
-
-const config = require('./config/config')
-
+const express = require('express');
+const config = require('./config/config');
+const registRoute = require('./routes/regist.routes');
+const loginRoute = require('./routes/login.routes');
+// const mainRoute = require('./routes/mainoutes');
+const logoutRoute = require('./routes/logout.routes');
 const mainRouter = require('./routes/main.routes');
+const sockRouter = require('./routes/sock.routes')
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 config(app);
 
-
-
-
 // app.use('/', mainRout);
-app.use("/", mainRoute);
-app.use("/regist", registRoute);
-app.use("/login", loginRoute);
-app.use("/main", mainRoute);
-app.use("/logout", logoutRoute);
+app.use('/', mainRouter);
+app.use('/info', sockRouter);
+app.use('/regist', registRoute);
+app.use('/login', loginRoute);
+app.use('/main', mainRouter);
+app.use('/logout', logoutRoute);
 
-app.listen(3000, () => console.log("listen port 3000"));
+app.listen(3000, () => console.log('listen port 3000'));
 // app.use('/', mainRouter)
 // app.use('/', mainRout);
