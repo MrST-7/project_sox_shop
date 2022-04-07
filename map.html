@@ -7,6 +7,7 @@
   <title>Document</title>
   <script src="https://api-maps.yandex.ru/2.1/?apikey=48e8a84a-141f-4f63-bc78-ddd9650d160b&lang=ru_RU" type="text/javascript">
   </script>
+  <script src="/map.js"></script>
     <!-- center: [59.943683, 30.360164], -->
   <script type="text/javascript" >
     // Функция ymaps.ready() будет вызвана, когда
@@ -22,10 +23,31 @@ ymaps.ready(() => {
 
   // Создаём макет содержимого.
   const MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-    '<div style="color: #000000; font-weight: bold;">$[properties.iconContent]</div>',
+    '<div style="color: #ffffff; font-weight: bold;">$[properties.iconContent]</div>',
   );
+  
+  const myPlacemark1WithContent = new ymaps.Placemark([59.943683, 30.360164], {
+    hintContent: 'Носки Чудесные',
+    balloonContent: 'А эта — новогодняя',
+    iconContent: '',
+  }, {
+    // Опции.
+    // Необходимо указать данный тип макета.
+    iconLayout: 'default#imageWithContent',
+    // Своё изображение иконки метки.
+    iconImageHref: './sox.png',
+    // Размеры метки.
+    iconImageSize: [48, 48],
+    // Смещение левого верхнего угла иконки относительно
+    // её "ножки" (точки привязки).
+    iconImageOffset: [-24, -24],
+    // Смещение слоя с содержимым относительно слоя с картинкой.
+    iconContentOffset: [150, 15],
+    // Макет содержимого.
+    // iconContentLayout: MyIconContentLayout,
+  });
 
-  const myPlacemarkWithContent = new ymaps.Placemark([59.943683, 30.360164], {
+  const myPlacemark2WithContent = new ymaps.Placemark([59.943863, 30.328292], {
     hintContent: 'Носки Чудесные',
     balloonContent: 'А эта — новогодняя',
     iconContent: '',
@@ -45,13 +67,17 @@ ymaps.ready(() => {
     // Макет содержимого.
     iconContentLayout: MyIconContentLayout,
   });
+  
 
   myMap.geoObjects
-    .add(myPlacemarkWithContent);
+    .add(myPlacemark1WithContent)
+    .add(myPlacemark2WithContent)
 });
 
   </script>
 </head>
+
+
 <body>
 
   <div id="map" style=" height: 500px; display: flex;

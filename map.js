@@ -1,55 +1,7 @@
-// center: [59.943683, 30.360164],
-ymaps.ready(() => {
-  const myMap = new ymaps.Map('map', {
-    center: [59.943683, 30.360164],
-    zoom: 17,
-  }, {
-    searchControlProvider: 'yandex#search',
-  });
+// [59.943683, 30.360164]
 
-  // Создаём макет содержимого.
-  const MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-    '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>',
-  );
-
-  const myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-    hintContent: 'Собственный значок метки',
-    balloonContent: 'Это красивая метка',
-  }, {
-    // Опции.
-    // Необходимо указать данный тип макета.
-    iconLayout: 'default#image',
-    // Своё изображение иконки метки.
-    iconImageHref: 'images/myIcon.gif',
-    // Размеры метки.
-    iconImageSize: [30, 42],
-    // Смещение левого верхнего угла иконки относительно
-    // её "ножки" (точки привязки).
-    iconImageOffset: [-5, -38],
-  });
-
-  const myPlacemarkWithContent = new ymaps.Placemark([59.943683, 30.360164], {
-    hintContent: 'Собственный значок метки с контентом',
-    balloonContent: 'А эта — новогодняя',
-    iconContent: '12',
-  }, {
-    // Опции.
-    // Необходимо указать данный тип макета.
-    iconLayout: 'default#imageWithContent',
-    // Своё изображение иконки метки.
-    iconImageHref: 'images/ball.png',
-    // Размеры метки.
-    iconImageSize: [48, 48],
-    // Смещение левого верхнего угла иконки относительно
-    // её "ножки" (точки привязки).
-    iconImageOffset: [-24, -24],
-    // Смещение слоя с содержимым относительно слоя с картинкой.
-    iconContentOffset: [15, 15],
-    // Макет содержимого.
-    iconContentLayout: MyIconContentLayout,
-  });
-
-  myMap.geoObjects
-    .add(myPlacemark)
-    .add(myPlacemarkWithContent);
-});
+fetch('https://justcors.com/tl_3041e83/https://api.weather.yandex.ru/v2/informers?lat=59.943683&lon=30.360164', {
+  headers: { 'X-Yandex-API-Key': '752cddb7-4e14-4911-b498-5862fdbcab0d' },
+})
+  .then((data) => data.json())
+  .then((data) => console.log(data));
