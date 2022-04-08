@@ -7,7 +7,6 @@ const {
 router
   .route('/')
   .get(async (req, res) => {
-    res.render('showAllSocks', { /* sock */ });
     let sock;
     console.log(Sock);
     try {
