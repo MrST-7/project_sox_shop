@@ -27,7 +27,6 @@ router
       });
       await newUser.save();
 
-      req.session.uid = newUser.id;
       res.redirect('/');
     }
   });

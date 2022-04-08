@@ -15,9 +15,8 @@ router
   .post(async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ where: { user_email: email } });
-    // console.log(`${password}`, `has${user.password}`);
     if (user && (await bcrypt.compare(password, user.user_password))) {
-      req.session.uid = user.id;
+      req.session.user = user;
       res.redirect('/');
     } else {
       res.status(420).send('Неверный логин или пароль');
