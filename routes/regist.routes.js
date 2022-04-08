@@ -7,11 +7,10 @@ router
 
   .get(async (req, res) => {
     const { uid } = req.session;
-    console.log(req.session);
 
     const user = uid && (await User.findByPk(Number(uid)));
     const isAuthorized = !!user;
-    res.render('regist', { user, isAuthorized }); // на главную.
+    res.render('regist', { user, isAuthorized });
   })
 
   .post(async (req, res) => {
@@ -28,7 +27,6 @@ router
       });
       await newUser.save();
 
-      req.session.uid = newUser.id;
       res.redirect('/');
     }
   });

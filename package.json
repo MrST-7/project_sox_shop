@@ -5,12 +5,11 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js",
     "dbc": "npx sequelize db:create",
     "dbm": "npx sequelize db:migrate:undo:all && npx sequelize db:migrate",
     "dbd": "npx sequelize db:drop",
-    "dbs": "npx sequelize db:seed:all"
-
+    "dbs": "npx sequelize db:seed:all",
+    "dev": "nodemon app.js --ignore ./sessions"
   },
   "repository": {
     "type": "git",
@@ -29,6 +28,7 @@
     "eslint-plugin-import": "^2.26.0"
   },
   "dependencies": {
+    "authorized": "^1.0.0",
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
     "express": "^4.17.3",

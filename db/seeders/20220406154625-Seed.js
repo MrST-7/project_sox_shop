@@ -63,7 +63,7 @@ module.exports = {
 
     await queryInterface.bulkInsert('Socks', [{
       sock_name: 'Клевый true',
-      sock_size: 2,
+      sock_size: 1,
       sock_season: 3,
       sock_isApproved: true,
       createdAt: new Date(),
@@ -72,7 +72,7 @@ module.exports = {
       sock_name: 'Клевый false',
       sock_size: 2,
       sock_season: 3,
-      sock_isApproved: false,
+      sock_isApproved: true,
       createdAt: new Date(),
       updatedAt: new Date(),
     },
