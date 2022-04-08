@@ -6,12 +6,14 @@ const loginRoute = require('./routes/login.routes');
 // const mainRoute = require('./routes/mainoutes');
 const logoutRoute = require('./routes/logout.routes');
 const mainRouter = require('./routes/main.routes');
-const sockRouter = require('./routes/sock.routes')
+const sockRouter = require('./routes/sock.routes');
+const isSession = require('./middlewars/isSession');
 
 const app = express();
 config(app);
 
 // app.use('/', mainRout);
+
 app.use('/', mainRouter);
 app.use('/info', sockRouter);
 app.use('/regist', registRoute);
