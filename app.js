@@ -12,15 +12,10 @@ const isSession = require('./middlewars/isSession');
 const app = express();
 config(app);
 
-// app.use('/', mainRout);
-
 app.use('/', mainRouter);
 app.use('/info', sockRouter);
 app.use('/regist', registRoute);
 app.use('/login', loginRoute);
-// app.use('/main', mainRouter);
 app.use('/logout', logoutRoute);
 
 app.listen(3000, () => console.log('listen port 3000'));
-// app.use('/', mainRouter)
-// app.use('/', mainRout);
