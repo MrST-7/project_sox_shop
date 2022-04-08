@@ -1,17 +1,29 @@
-<div class="container position-absolute top-50 start-50 translate-middle">
-  <div calss="row">
+<div class="container">
+  <style>
+    .container {
+      margin-left: 20%;
+      /* Отступ слева */
+      margin-right: 30%;
+      /* Отступ слева */
+      background-color: rgb(169, 208, 245);
+      /* Цвет фона */
+      padding: 10px;
+      /* Поля вокруг текста */
+    }
+  </style>
+  <form id="login" method="post" action="/login">
+    <div class="form-outline mb-4">
+      <input type="email" id="form2Example1" class="form-control" />
+      <label class="form-label" for="form2Example1">Почта</label>
+    </div>
 
-    <form action="/login" method="post" style="top: 100px;background-color:antiquewhite;  ">
-
-  </div>
-  <div class="mb-3" style="width: 300px;">
-    <label for="email" class="form-label">Email address</label>
-    <input name="email" type="text" class="form-control" id="email" aria-describedby="emailHelp">
-  </div>
-  <div class="mb-3" style="width: 300px;">
-    <label for="password" class="form-label">Password</label>
-    <input name="password" type="password" class="form-control" id="password">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-  <!-- Scrollable modal -->
-  
+    <div class="form-outline mb-4">
+      <input type="password" id="form2Example2" class="form-control" />
+      <label class="form-label" for="form2Example2">Пароль</label>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block mb-3">Войти</button>
+    <div class="text-center">
+      <p>Нет аккаунта? <a href="/views/regist.hbs">Регистрация</a></p>
+    </div>
+  </form>
+</div>

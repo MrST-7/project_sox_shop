@@ -1,19 +1,33 @@
-<form id="regist" method="post" action="/regist" style="top: 100px;background-color:antiquewhite;  ">
-  <div class="mb-3" style="width: 300px;">
-    <label for="exampleInputEmail1" class="form-label">Name</label>
-    <input name="name" type="name" class="form-control" id="name">
-  </div>
-   <div class="mb-3" style="width: 300px;" >
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input name="email" type="text" class="form-control" id="email" aria-describedby="emailHelp">
-  </div>
-  <div class="mb-3"style="width: 300px;" >
-    <label for="password" class="form-label">Password</label>
-    <input name="password" type="password" class="form-control" id="password">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-
-
-
-{{!-- type name ? id ?  --}}
+<div class="container">
+  <style>
+    .container {
+      margin-left: 20%;
+      /* Отступ слева */
+      margin-right: 30%;
+      /* Отступ слева */
+      background-color: rgb(169, 208, 245);
+      /* Цвет фона */
+      padding: 10px;
+      /* Поля вокруг текста */
+    }
+  </style>
+  <form id="regist" method="post" action="/regist">
+    <div class="row mb-4">
+      <div class="col">
+        <div class="form-outline">
+          <input type="text" id="form3Example1" class="form-control" />
+          <label class="form-label" for="form3Example1">Имя</label>
+        </div>
+      </div>
+      <div class="form-outline mb-4">
+        <input type="email" id="form3Example3" class="form-control" />
+        <label class="form-label" for="form3Example3">Почта</label>
+      </div>
+      <div class="form-outline mb-4">
+        <input type="password" id="form3Example4" class="form-control" />
+        <label class="form-label" for="form3Example4">Пароль</label>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block mb-3">Войти</button>
+    </div>
+  </form>
+</div>
