@@ -9,7 +9,8 @@
     "dbm": "npx sequelize db:migrate:undo:all && npx sequelize db:migrate",
     "dbd": "npx sequelize db:drop",
     "dbs": "npx sequelize db:seed:all",
-    "dev": "nodemon app.js --ignore ./sessions"
+    "dev": "nodemon app.js --ignore ./sessions",
+    "db-restart": "npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all"
   },
   "repository": {
     "type": "git",

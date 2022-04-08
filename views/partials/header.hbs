@@ -9,24 +9,32 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Носочки Азамата</a>
         </li>
+        {{#if user.user_isAdmin}}
         <li class="nav-item">
-          <a class="nav-link" href="#">Профиль</a>
+          <a class="nav-link" href="/notApproved">Неаппрувнутые носки</a>
         </li>
+        {{/if}}
         <li class="nav-item">
           <a class="nav-link" href="#">Свой дизайн</a>
         </li>
+        {{#if user}}
         <li class="nav-item">
           <a class="nav-link" href="#">Корзина</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="/logout" tabindex="-1" aria-disabled="true">Выйти</a>
+        </li>
+
+        {{else}}
+        <li class="nav-item">
           <a class="nav-link" href="/login" tabindex="-1" aria-disabled="true">Войти</a>
         </li>
+        
         <li class="nav-item">
           <a class="nav-link" href="/regist" tabindex="-1" aria-disabled="true">Регистрация</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/logout" tabindex="-1" aria-disabled="true">Выйти</a>
-        </li>
+
+        {{/if}}
       </ul>
     </div>
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
