@@ -77,7 +77,7 @@ module.exports = {
       },
       sock_img: {
         type: Sequelize.TEXT,
-        // allowNull: false,
+        allowNull: true,
       },
       createdAt: {
         allowNull: false,

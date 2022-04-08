@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     sock_img: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
   }, {
     sequelize,
