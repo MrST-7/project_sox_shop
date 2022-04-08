@@ -9,9 +9,11 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Носочки Азамата</a>
         </li>
+        {{#if user.user_isAdmin}}
         <li class="nav-item">
-          <a class="nav-link" href="#">Профиль</a>
+          <a class="nav-link" href="/notApproved">Неаппрувнутые носки</a>
         </li>
+        {{/if}}
         <li class="nav-item">
           <a class="nav-link" href="#">Свой дизайн</a>
         </li>
