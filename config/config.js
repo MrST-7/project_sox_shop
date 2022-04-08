@@ -1,5 +1,6 @@
 const express = require('express');
 const hbs = require('hbs');
+
 const path = require('path');
 const session = require('express-session');
 const sessionFileStore = require('session-file-store');
@@ -7,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const isSession = require('../middlewars/isSession');
 
 const FileStore = sessionFileStore(session);
+
 
 const config = (app) => {
   app.set('view engine', 'hbs');
@@ -17,6 +19,9 @@ const config = (app) => {
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
   app.use(express.static(path.join(process.env.PWD, 'public')));
+
+
+
   app.use(cookieParser());
   app.use(
     session({
@@ -29,7 +34,6 @@ const config = (app) => {
       cookie: { maxAge: 10e3 * 60, httpOnly: true },
     }),
   );
-  app.use(isSession);
 };
 
 module.exports = config;

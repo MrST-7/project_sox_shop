@@ -1,0 +1,109 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #e6e6e6;
+}
+svg {
+    padding: 5px;
+    margin: 10px;
+}
+h2 {
+    background-color: #dbdbdb;
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-family: 'Open Sans';
+}
+#color-input {
+    display: none;
+}
+#color-label {
+    margin-left: 15px;
+    position: absolute;
+    top: 90%;
+    height: 30px;
+    width: 50px;
+}
+#color-input:checked ~ #color-picker {
+    opacity: 1;
+}
+#color-picker {
+    position: absolute;
+    top: 27%;
+    left: 5%;
+    background-color: white;
+    height: 2%;
+    width: 15%;
+    border-radius: 30px;
+    opacity: 0;
+    padding: 10px;
+    background-color: #E6E6E6;
+
+}
+canvas:hover {
+    cursor: crosshair;
+}
+
+.sock-container {
+    position: relative;
+    width: 80vh;
+    height: auto;
+    border: solid 1px black;
+}
+
+.info-container {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.sock-column {
+    width: 20vh;
+    height: 20vh;
+    border: solid 1px black;
+}
+.sock-column img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#color-block {
+    margin-top: 5px;
+    border: 2px solid black;
+}
+
+#color-strip {
+    border: 2px solid black;
+    margin-top: 5px;
+}
+
+.svg-container svg {
+    width: 200px;
+    height: 150px;
+}
+
+
+
+/*<!--            <style type="text/css">-->*/
+/*<!--            <![CDATA[-->*/
+/*<!--            #rect1 {-->*/
+/*                <!--                fill: url(#Gradient1);-->*/
+/*                <!--            }-->*/
+
+/*<!--            .stop1 {-->*/
+/*                <!--                stop-color: red;-->*/
+/*                <!--            }-->*/
+
+/*<!--            .stop2 {-->*/
+/*                <!--                stop-color: black;-->*/
+/*                <!--                stop-opacity: 0;-->*/
+/*                <!--            }-->*/
+
+/*<!--            .stop3 {-->*/
+/*                <!--                stop-color: blue;-->*/
+/*                <!--            }-->*/
+/*<!--            ]]>-->*/
+/*<!--          </style>-->*/

@@ -10,9 +10,10 @@ router.get("/:id", async (req, res) => {
       include: [Sock_season, Sock_size],
       raw: true,
     });
+    const image = sock.sock_img
     const season = sock["Sock_season.id_sock_season"];
     const size = sock["Sock_size.id_sock_size"];
-    return res.render("showOne", { sock, season, size });
+    return res.render("showOne", { sock, season, size, image });
   } catch (error) {
     return res.render("error", {
       message: error,

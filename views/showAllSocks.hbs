@@ -1,7 +1,8 @@
-<div class="allCard d-flex justify-content-between">
-  {{#each sock}}
-  <div class="card m-1" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
+{{#each sock}}
+  <div class="card" style="width: 18rem;">
+   <div class="svg-container">
+       {{{this.sock_img}}}
+   </div>
     <div class="card-body">
       <h5 class="card-name">{{this.sock_name}}</h5>
       <h5 class="card-size">{{this.sock_size}}</h5>
