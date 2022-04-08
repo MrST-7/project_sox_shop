@@ -7,10 +7,11 @@ router
 
   .get(async (req, res) => {
     const { uid } = req.session;
+    console.log(req.session);
 
     const user = uid && (await User.findByPk(Number(uid)));
     const isAuthorized = !!user;
-    res.render('regist', { user, isAuthorized });
+    res.render('regist', { user, isAuthorized }); // на главную.
   })
 
   .post(async (req, res) => {
