@@ -1,9 +1,4 @@
-<script defer src="/js/sox.js"></script>
-
-<form id="add" action="submit">
-
-<div id='approvedSocksContainer' class="allCard d-flex justify-content-between">
-  {{#each sock}}
+  {{#each updatedSocks}}
   <div class="card m-1" style="width: 18rem;">
     <img src="/public/img/cat1.jpg" class="card-img-top" alt="...">
     <div class="card-body">
@@ -12,10 +7,7 @@
       <h5 class="card-season">{{this.sock_season}}</h5>
       <a href="/notApproved/{{this.id}}"  class="btn btn-primary">Одобрить</a>
       {{!-- <a id="update" href="/notApproved/{{this.id}}" class="btn btn-primary">Изменить</a> --}}
-      <a id="delete" href="/notApproved/{{this.id}}" class="btn btn-primary">Удалить</a>
+      <a href="/notApproved/{{this.id}}" class="btn btn-primary">Удалить</a>
     </div>
   </div>
 {{/each}}
-</div>
-
-</form>

@@ -20,20 +20,39 @@ router.route("/").get(async (req, res) => {
   res.render("notApproved", { sock });
 });
 
-router.post("/notApproved/:id", async (req, res) => {
-  const { id } = req.params;
-  console.log(id);
-  const sock = await Sock.update({
-    sock_isApproved: true,
-    where: {
-      id,
-    },
+router
+  .route("/:id")
+  .get(async (req, res) => {
+    const { id } = req.params;
+    const sock = await Sock.update(
+      {
+        sock_isApproved: true,
+      },
+      { where: { id } }
+    );
+
+    const updatedSocks = await Sock.findAll({
+      raw: true,
+      where: {
+        sock_isApproved: false,
+      },
+    });
+
+    res.render("soxCardApproved", { layout: false, updatedSocks });
+  })
+  .delete(async (req, res) => {
+    const { id } = req.params;
+
+    await Sock.destroy({ where: { id } })
+    
+    const updatedSocks = await Sock.findAll({
+      raw: true,
+      where: {
+        sock_isApproved: false,
+      },
+    });
+
+    res.render("soxCardApproved", { layout: false, updatedSocks });
   });
-  try {
-    res.redirect("notApproved");
-  } catch (error) {
-    res.send("error");
-  }
-});
 
 module.exports = router;
