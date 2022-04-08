@@ -22,4 +22,4 @@ router.get('/:id', async (req, res) => {
 //   res.render('home');
 // }
 
-module.exports = router
+module.exports = router;
