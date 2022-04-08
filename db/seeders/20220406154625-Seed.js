@@ -162,7 +162,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          sock_name: "мат носок",
+          sock_name: "Хуй носок",
           sock_size: 4,
           sock_season: 3,
           sock_isApproved: false,
@@ -172,7 +172,7 @@ module.exports = {
       ],
       {}
     );
-    
+  },
 
   async down(queryInterface, Sequelize) {
     /**
@@ -181,11 +181,10 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-
-    await queryInterface.bulkDelete('Socks', null, {});
-    await queryInterface.bulkDelete('Users', null, {});
-    await queryInterface.bulkDelete('Sock_sizes', null, {});
-    await queryInterface.bulkDelete('Sock_seasons', null, {});
-    await queryInterface.bulkDelete('Basket', null, {});
+    await queryInterface.bulkDelete("Socks", null, {});
+    // await queryInterface.bulkDelete('Basket', null, {});
+    await queryInterface.bulkDelete("Users", null, {});
+    await queryInterface.bulkDelete("Sock_sizes", null, {});
+    await queryInterface.bulkDelete("Sock_seasons", null, {});
   },
 };
