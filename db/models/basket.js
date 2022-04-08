@@ -17,7 +17,6 @@ module.exports = (sequelize, DataTypes) => {
   Basket.init({
     id_user: {
       type: DataTypes.INTEGER,
-      unique: true,
       references: {
         model: 'Users',
         key: 'id',

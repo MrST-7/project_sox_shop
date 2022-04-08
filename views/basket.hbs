@@ -3,14 +3,18 @@
   <div class="card m-1" style="width: 18rem;">
     <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-name">{{this}}</h5>
-      <h5 class="card-size">{{this}}</h5> 
+      <h5 class="card-name">{{this.id_sock}}</h5>
+      <h5 class="card-size">{{this.id_user}}</h5> 
       <h5 class="card-season">{{this}}</h5>
       <a href="/info/{{this.id}}" class="btn btn-primary">Подробнее</a>
       {{#if user.user_isAdmin}}
       <a href="/info/{{this.id}}" class="btn btn-primary">Изменить</a>
       {{/if}}
-      <a href='/basket/remove/{{this.id}}' class="btn btn-primary">Удалить</a>
+      <a href='/basket/remove/{{this.id_sock}}'  class="btn btn-primary">Удалить</a>
     </div>
   </div>
 {{/each}}</div>
+
+
+
+ Привет1
