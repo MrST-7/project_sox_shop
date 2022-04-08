@@ -2,13 +2,6 @@ const router = require("express").Router();
 const bcrypt = require("bcrypt");
 const { User } = require("../db/models");
 
-// router.route("/").get(async (req, res) => {
-//   const { uid } = req.session;
-//   const user = uid && (await User.findByPk(Number(uid)));
-//   const isAuthorized = !!user;
-//   res.render("login", { user, isAuthorized });
-// });
-
 router
   .route("/")
   .get((req, res) => res.render("login"))

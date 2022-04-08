@@ -19,8 +19,5 @@ router.get("/:id", async (req, res) => {
     });
   }
 });
-// router.get('/home', (req, res) => {
-//   res.render('home');
-// }
 
 module.exports = router;

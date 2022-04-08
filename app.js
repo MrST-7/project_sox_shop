@@ -21,5 +21,4 @@ app.use("/main", mainRouter);
 app.use("/logout", logoutRoute);
 
 app.listen(3000, () => console.log("listen port 3000"));
-// app.use('/', mainRouter)
-// app.use('/', mainRout);
+
