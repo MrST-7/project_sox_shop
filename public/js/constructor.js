@@ -90,7 +90,15 @@ colorBlock.addEventListener("mousemove", mousemove, false);
 const colorPicked = document.getElementById('color-label')
 const parts = document.querySelector('.square')
 const colorBox = document.getElementById('color-picker')
-console.log(colorPicked.style.backgroundColor)
+const patternContainer = document.querySelector('.info-container')
+const insertImage = document.querySelector('#insert-image')
+const mainColor = document.querySelector('#main-color')
+const sockContainer = document.querySelector('.sock-container')
+const sendToModerate = document.querySelector('#btn-image-moderate')
+const moderateForm = document.querySelector('.form-to-moderate')
+
+// console.log(sendToModerate.href)
+// console.log(sockContainer.innerHTML)
 
 parts.addEventListener('click', (event) => {
     event.preventDefault()
@@ -100,5 +108,40 @@ parts.addEventListener('click', (event) => {
 
        targetPart.style.fill = colorPicked.style.backgroundColor
     })
+
+})
+patternContainer.addEventListener('click', (event) => {
+    event.preventDefault()
+    pickedImg = event.target.src
+    imgToChange = insertImage.href.animVal
+
+    mainColor.removeAttribute('style')
+    mainColor.setAttribute('style', 'fill: url(#img1)')
+    insertImage.removeAttribute('href')
+    insertImage.setAttribute('href', `${pickedImg}`)
+})
+
+moderateForm.addEventListener('submit', async (event) => {
+    event.preventDefault()
+    const {action, method, title, size, seasons} = event.target
+    // console.log(title.value, size.value, seasons.value)
+    const svgSendBox = document.querySelector('.text-area-form')
+    svgText = sockContainer.innerHTML
+    svgSendBox.value = svgText.trim()
+    const image = svgSendBox.value
+    // console.log(image)
+
+    const response = await fetch(action, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            sock_name: title.value,
+            sock_size: size.value,
+            sock_season: seasons.value,
+            sock_img: image,
+        })
+    })
+    document.getElementById('divForIn').innerHTML = image
+    const data = await response.json()
 
 })
