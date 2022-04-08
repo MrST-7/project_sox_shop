@@ -16,5 +16,6 @@ module.exports = {
     'no-console': 0,
     camelcase: 0,
     'no-unused-vars': 0,
+    'max-len': 0,
   },
 };

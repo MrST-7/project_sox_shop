@@ -18,7 +18,7 @@ app.use('/', mainRouter);
 app.use('/info', sockRouter);
 app.use('/regist', registRoute);
 app.use('/login', loginRoute);
-app.use('/main', mainRouter);
+// app.use('/main', mainRouter);
 app.use('/logout', logoutRoute);
 
 app.listen(3000, () => console.log('listen port 3000'));

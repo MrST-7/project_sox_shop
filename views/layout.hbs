@@ -11,6 +11,9 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
   <script defer src="/js/client.js"></script>
+  {{!-- ЯНДЕКС --}}
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=48e8a84a-141f-4f63-bc78-ddd9650d160b&lang=ru_RU" type="text/javascript"></script>
+  <script defer src="/js/map.js"></script>
   <link href="/css/style.css" rel="stylesheet">
   <title>Sox</title>
 </head>
@@ -27,6 +30,9 @@
     <a href="/regist">Registration</a>
     <br>
     <a href="/main">Menu</a> --}}
+
+    {{!-- Map есть надо прорабоать позиционирование ,  --}}
+    {{>map}}
     {{>footer}}
   </div>
 </body>
