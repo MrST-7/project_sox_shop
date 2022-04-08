@@ -1,16 +1,16 @@
 <div class="allCard d-flex justify-content-between">
-  {{#each sock}}
+  {{#each basketId}}
   <div class="card m-1" style="width: 18rem;">
-    <img src="/img/200w.gif" class="card-img-top" alt="...">
+    <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-name">{{this.sock_name}}</h5>
-      <h5 class="card-size">{{this.sock_size}}</h5> 
-      <h5 class="card-season">{{this.sock_season}}</h5>
+      <h5 class="card-name">{{this}}</h5>
+      <h5 class="card-size">{{this}}</h5> 
+      <h5 class="card-season">{{this}}</h5>
       <a href="/info/{{this.id}}" class="btn btn-primary">Подробнее</a>
       {{#if user.user_isAdmin}}
       <a href="/info/{{this.id}}" class="btn btn-primary">Изменить</a>
       {{/if}}
-      <a href="/basket/{{this.id}}" class="btn btn-primary">Купить</a>
+      <a href='/basket/remove/{{this.id}}' class="btn btn-primary">Удалить</a>
     </div>
   </div>
 {{/each}}</div>

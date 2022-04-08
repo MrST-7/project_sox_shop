@@ -7,7 +7,7 @@ router
 
   .get(async (req, res) => {
     const { uid } = req.session;
-    console.log(req.session);
+    // console.log(req.session);
 
     const user = uid && (await User.findByPk(Number(uid)));
     const isAuthorized = !!user;
@@ -27,6 +27,7 @@ router
         user_password: await bcrypt.hash(password, 10),
       });
       await newUser.save();
+      req.session.uid = user.id;
 
       res.redirect('/');
     }

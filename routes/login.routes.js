@@ -17,6 +17,7 @@ router
     const user = await User.findOne({ where: { user_email: email } });
     if (user && (await bcrypt.compare(password, user.user_password))) {
       req.session.user = user;
+      req.session.uid = user.id;
       res.redirect('/');
     } else {
       res.status(420).send('Неверный логин или пароль');

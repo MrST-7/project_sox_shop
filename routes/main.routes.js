@@ -8,7 +8,7 @@ router
   .route('/')
   .get(async (req, res) => {
     let sock;
-    console.log(Sock);
+    // console.log(Sock);
     try {
       sock = await Sock.findAll({
         raw: true,
@@ -27,7 +27,7 @@ router
         message: error,
       });
     }
-    res.render('showAllSocks', { sock });
+    return res.render('showAllSocks', { sock });
   });
 
 module.exports = router;

@@ -8,6 +8,7 @@ const logoutRoute = require('./routes/logout.routes');
 const mainRouter = require('./routes/main.routes');
 const sockRouter = require('./routes/sock.routes');
 const isSession = require('./middlewars/isSession');
+const basketRoute = require('./routes/basket.routes');
 
 const app = express();
 config(app);
@@ -20,6 +21,7 @@ app.use('/regist', registRoute);
 app.use('/login', loginRoute);
 // app.use('/main', mainRouter);
 app.use('/logout', logoutRoute);
+app.use('/basket', basketRoute);
 
 app.listen(3000, () => console.log('listen port 3000'));
 // app.use('/', mainRouter)
